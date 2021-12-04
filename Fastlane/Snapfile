@@ -2,7 +2,7 @@
 
 # A list of devices you want to take the screenshots from
  devices([
-   "Apple TV 4K second",
+   "Apple TV 4K",
  ])
 
  languages([
