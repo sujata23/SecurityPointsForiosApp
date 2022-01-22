@@ -1,0 +1,23 @@
+name: "Testing"
+on:
+ workflow_dispatch:
+    inputs:
+      Start:
+        description: 'What kind of beta is it? (nightly/internal/public/appstore)'
+        required: false
+        default: 'nightly'
+env:
+  DEVELOPER_DIR: /Applications/Xcode_13.0.app/Contents/Developer
+jobs:
+  build-and-test:
+    runs-on: macos-11
+    strategy:
+      matrix:
+        destination: ["OS=15.0,name=Apple TV 4K"] #, "OS=15.4,name=Apple TV 4K", "OS=10.2,name=Apple TV 1080p"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check  if else
+      if: 1 == 1
+      run: |
+         echo "step 1"
+         echo "step 2"
