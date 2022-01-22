@@ -1,4 +1,4 @@
-name: "Testing"
+name: "IfAndElse"
 on:
  workflow_dispatch:
     inputs:
