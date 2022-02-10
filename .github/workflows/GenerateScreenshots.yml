@@ -1,11 +1,8 @@
 name: "Testing"
 on:
- workflow_dispatch:
-    inputs:
-      Start:
-        description: 'What kind of beta is it? (nightly/internal/public/appstore)'
-        required: false
-        default: 'nightly'
+  push:
+   branches:    
+      - 'release/**'
 env:
   DEVELOPER_DIR: /Applications/Xcode_13.0.app/Contents/Developer
 jobs:
