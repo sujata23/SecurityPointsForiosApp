@@ -4,13 +4,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
+   name: Test
+   runs-on: macOS-latest
+   strategy:
+      matrix:
+        destination: ['platform=tvOS Simulator,OS=12.2,name=Apple TV 4K']
 
-    runs-on: macos-latest
-
-    steps:
+   steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: set -o pipefail && xcodebuild clean -scheme test -destination 'platform:tvOS Simulator, id:EC848687-1F17-4457-B384-779FDDA2C3B4, OS:15.2, name:Apple TV' -derivedDataPath $DERIVED_DATA_PATH build-for-testing
+      run: set -o pipefail && xcodebuild clean -scheme test -destination "${destination}" -derivedDataPath $DERIVED_DATA_PATH build-for-testing
     - name: Run tests
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme test -destination 'platform:tvOS Simulator, id:EC848687-1F17-4457-B384-779FDDA2C3B4, OS:15.2, name:Apple TV' clean test | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme test -destination "${destination}" clean test | xcpretty
