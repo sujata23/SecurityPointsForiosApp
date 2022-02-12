@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: tvOS - ${{ matrix.destination }}
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme Viaplay -destination "${{ matrix.destination }}" clean test | xcpretty
+      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme test -destination "${{ matrix.destination }}" clean test | xcpretty
