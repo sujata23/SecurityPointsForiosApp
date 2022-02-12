@@ -19,8 +19,29 @@ class FastlaneTests: XCTestCase {
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let testDate: Date = {
+            let dateComponent = DateComponents(
+                calendar: Calendar.current,
+                timeZone: TimeZone(abbreviation: "UTC"),
+                year: 1980,
+                month: 12,
+                day: 01,
+                hour: 16,
+                minute: 00,
+                second: 00
+            )
+            return dateComponent.date!
+        }()
+
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "sv_SE")
+        formatter.setLocalizedDateFormatFromTemplate("HHmm")
+        let result = formatter.string(from: testDate)
+        
+        XCTAssertEqual(result, "17:00")
+
     }
 
     func testPerformanceExample() throws {
