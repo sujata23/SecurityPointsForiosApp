@@ -40,7 +40,7 @@ class FastlaneTests: XCTestCase {
         formatter.setLocalizedDateFormatFromTemplate("HHmm")
         let result = formatter.string(from: testDate)
         
-        XCTAssertEqual(result, "17:00")
+        XCTAssertEqual(result, "16:00")
 
     }
 
