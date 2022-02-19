@@ -10,10 +10,6 @@ jobs:
     name: build_release
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: build
-        run: make build
       - name: release
         uses: actions/create-release@v1
         id: create_release
