@@ -41,6 +41,8 @@ class FastlaneTests: XCTestCase {
         let result = formatter.string(from: testDate)
         
         XCTAssertEqual(result, "16:00")
+        
+        XCTAssertEqual(TimeZone.current.identifier, "Europe/Stockholm")
 
     }
 
